@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsBasket.Models", "TicketsBasket.Models\TicketsBasket.Models.csproj", "{3D2059D1-825C-4430-AE73-1441FF291E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsBasket.Api", "TicketsBasket.Api\TicketsBasket.Api.csproj", "{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsBasket.Blazor", "TicketsBasket.Blazor\TicketsBasket.Blazor.csproj", "{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,5 +20,43 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Debug|x64.Build.0 = Debug|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Debug|x86.Build.0 = Debug|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Release|x64.ActiveCfg = Release|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Release|x64.Build.0 = Release|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Release|x86.ActiveCfg = Release|Any CPU
+		{3D2059D1-825C-4430-AE73-1441FF291E24}.Release|x86.Build.0 = Release|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Debug|x64.Build.0 = Debug|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Debug|x86.Build.0 = Debug|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Release|x64.ActiveCfg = Release|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Release|x64.Build.0 = Release|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Release|x86.ActiveCfg = Release|Any CPU
+		{49EF5DD1-D2AA-4D0E-A4EA-482F58E24DEB}.Release|x86.Build.0 = Release|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Debug|x64.Build.0 = Debug|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Debug|x86.Build.0 = Debug|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Release|x64.ActiveCfg = Release|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Release|x64.Build.0 = Release|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F08F4A5-544F-48C8-84E7-8BBEEC0E8A80}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
