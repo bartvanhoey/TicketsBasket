@@ -5,7 +5,7 @@ namespace TicketsBasket.Models.Data
 {
   public class TicketsBasketDbContext : DbContext
   {
-    private TicketsBasketDbContext(DbContextOptions<TicketsBasketDbContext> options)
+    public TicketsBasketDbContext(DbContextOptions<TicketsBasketDbContext> options)
         : base(options)
     {
 
