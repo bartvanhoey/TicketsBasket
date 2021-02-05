@@ -9,7 +9,7 @@ namespace TicketsBasket.Repositories
 
     Task<UserProfile> GetByIdAsync(string id);
 
-    Task<UserProfile> GetByUserId(string id);
+    Task<UserProfile> GetByUserIdAsync(string id);
 
     void Remove(UserProfile userProfile);
 

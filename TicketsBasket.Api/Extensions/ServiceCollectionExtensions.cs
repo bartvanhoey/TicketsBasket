@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using TicketsBasket.Infrastructure.Options;
 using TicketsBasket.Models.Data;
 using TicketsBasket.Repositories;
+using TicketsBasket.Services;
 
 namespace TicketsBasket.Api.Extensions
 {
@@ -57,16 +58,22 @@ namespace TicketsBasket.Api.Extensions
 
     public static void AddIdentityOptions(this IServiceCollection services)
     {
-      services.AddScoped<IdentityOptions>(sp => 
+      services.AddScoped<IdentityOptions>(sp =>
       {
         var httpContext = sp.GetService<IHttpContextAccessor>().HttpContext;
         var identityOptions = new IdentityOptions();
         if (httpContext.User.Identity.IsAuthenticated)
         {
-            identityOptions.UserId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+          identityOptions.UserId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
         return identityOptions;
       });
+    }
+
+    public static void AddBusinessServices(this IServiceCollection services)
+    {
+      services.AddScoped<IUserProfilesService, UserProfilesService>();
+
     }
   }
 }

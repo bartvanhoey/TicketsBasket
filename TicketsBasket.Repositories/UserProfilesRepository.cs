@@ -24,7 +24,7 @@ namespace TicketsBasket.Repositories
       return await _db.UserProfiles.FindAsync(id);
     }
 
-    public async Task<UserProfile> GetByUserId(string id)
+    public async Task<UserProfile> GetByUserIdAsync(string id)
     {
       return await _db.UserProfiles.SingleOrDefaultAsync(up => up.UserId == id);
     }

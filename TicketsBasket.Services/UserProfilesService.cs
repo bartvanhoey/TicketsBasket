@@ -1,22 +1,29 @@
 using System.Threading.Tasks;
 using TicketsBasket.Infrastructure.Options;
+using TicketsBasket.Models.Mapper;
+using TicketsBasket.Repositories;
 using TicketsBasket.Shared.Dtos;
 using TicketsBasket.Shared.Responses;
 
 namespace TicketsBasket.Services
 {
-  public class UserProfilesService : IUserProfilesService
+  public class UserProfilesService : BaseService, IUserProfilesService
   {
-    private readonly IdentityOptions _identityOptions;
+    private readonly IdentityOptions _identity;
+    private readonly IUnitOfWork _uow;
 
-    public UserProfilesService(IdentityOptions identityOptions)
+    public UserProfilesService(IdentityOptions identity, IUnitOfWork unitOfWork)
     {
-      _identityOptions = identityOptions;
+      _identity = identity;
+      _uow = unitOfWork;
     }
 
-    public Task<OperationResponse<UserProfileDto>> GetUserProfileByUserIdAsync()
+    public async Task<OperationResponse<UserProfileDto>> GetUserProfileByUserIdAsync()
     {
-      throw new System.NotImplementedException();
+      var userProfile = await _uow.UserProfiles.GetByUserIdAsync(_identity.UserId);
+
+      if (userProfile == null) return Error<UserProfileDto>("Profile not found", null);
+      return Success<UserProfileDto>("Profile retrieved successfully", userProfile.ToUserProfileDto());      
     }
   }
 }
