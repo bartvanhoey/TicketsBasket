@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TicketsBasket.Models\TicketsBasket.Models.csproj" />
+    <ProjectReference Include="..\TicketsBasket.Repositories\TicketsBasket.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

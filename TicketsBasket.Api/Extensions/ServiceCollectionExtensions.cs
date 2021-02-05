@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 using TicketsBasket.Models.Data;
+using TicketsBasket.Repositories;
 
 namespace TicketsBasket.Api.Extensions
 {
@@ -44,6 +45,11 @@ namespace TicketsBasket.Api.Extensions
           {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "TicketsBasket.Api", Version = "v1" });
           });
+    }
+
+    public static void AddUnitOfWork(this IServiceCollection services)
+    {
+      services.AddScoped<IUnitOfWork, EfUnitOfWork>();
     }
   }
 }

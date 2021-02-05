@@ -37,6 +37,8 @@ namespace TicketsBasket.Api
       services.AddTicketsBasketDbContext(Configuration);
       services.AddCorsPolicy();
       services.AddSwaggerUi();
+      services.AddUnitOfWork();
+
       services.AddControllers();
 
     }

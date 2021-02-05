@@ -12,6 +12,9 @@ namespace TicketsBasket.Models.Domain
     }
 
     [Required]
+    public string UserId { get; set; }
+
+    [Required]
     [StringLength(25)]
     public string FirstName { get; set; }
 
@@ -42,7 +45,5 @@ namespace TicketsBasket.Models.Domain
 
     public virtual List<JobApplication> SentApplications { get; set; }
     public virtual List<JobApplication> ReceivedApplications { get; set; }
-
-
   }
 }
