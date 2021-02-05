@@ -35,10 +35,11 @@ namespace TicketsBasket.Api
 
       services.AddB2cAuthentication(Configuration);
       services.AddTicketsBasketDbContext(Configuration);
-      services.AddCorsPolicy();
-      services.AddSwaggerUi();
       services.AddUnitOfWork();
-
+      services.AddCorsPolicy();
+      services.AddHttpContextAccessor();
+      services.AddSwaggerUi();
+      services.AddIdentityOptions();
       services.AddControllers();
 
     }

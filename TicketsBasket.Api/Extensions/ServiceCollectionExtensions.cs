@@ -1,9 +1,12 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
+using TicketsBasket.Infrastructure.Options;
 using TicketsBasket.Models.Data;
 using TicketsBasket.Repositories;
 
@@ -50,6 +53,20 @@ namespace TicketsBasket.Api.Extensions
     public static void AddUnitOfWork(this IServiceCollection services)
     {
       services.AddScoped<IUnitOfWork, EfUnitOfWork>();
+    }
+
+    public static void AddIdentityOptions(this IServiceCollection services)
+    {
+      services.AddScoped<IdentityOptions>(sp => 
+      {
+        var httpContext = sp.GetService<IHttpContextAccessor>().HttpContext;
+        var identityOptions = new IdentityOptions();
+        if (httpContext.User.Identity.IsAuthenticated)
+        {
+            identityOptions.UserId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        }
+        return identityOptions;
+      });
     }
   }
 }

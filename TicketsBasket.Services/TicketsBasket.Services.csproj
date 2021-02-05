@@ -4,6 +4,7 @@
     <ProjectReference Include="..\TicketsBasket.Models\TicketsBasket.Models.csproj" />
     <ProjectReference Include="..\TicketsBasket.Repositories\TicketsBasket.Repositories.csproj" />
     <ProjectReference Include="..\TicketsBasket.Shared\TicketsBasket.Shared.csproj" />
+    <ProjectReference Include="..\TicketsBasket.Infrastructure\TicketsBasket.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

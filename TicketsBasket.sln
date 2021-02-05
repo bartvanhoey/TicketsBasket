@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsBasket.Shared", "Tic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsBasket.Services", "TicketsBasket.Services\TicketsBasket.Services.csproj", "{E03EAB6E-364A-4F7B-9983-FB9D7F3F537F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsBasket.Infrastructure", "TicketsBasket.Infrastructure\TicketsBasket.Infrastructure.csproj", "{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +102,17 @@ Global
 		{E03EAB6E-364A-4F7B-9983-FB9D7F3F537F}.Release|x64.Build.0 = Release|Any CPU
 		{E03EAB6E-364A-4F7B-9983-FB9D7F3F537F}.Release|x86.ActiveCfg = Release|Any CPU
 		{E03EAB6E-364A-4F7B-9983-FB9D7F3F537F}.Release|x86.Build.0 = Release|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Release|x64.Build.0 = Release|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E3D9A19-9956-4CB9-B9F5-1A4D565CD9DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
