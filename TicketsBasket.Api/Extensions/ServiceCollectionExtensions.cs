@@ -66,7 +66,7 @@ namespace TicketsBasket.Api.Extensions
         var identityOptions = new IdentityOptions();
         if (httpContext.User.Identity.IsAuthenticated)
         {
-          identityOptions.UserId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+          identityOptions.User = httpContext.User;
         }
         return identityOptions;
       });

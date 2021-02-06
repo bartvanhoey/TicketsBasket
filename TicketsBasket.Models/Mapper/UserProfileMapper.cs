@@ -1,5 +1,7 @@
 using TicketsBasket.Models.Domain;
 using TicketsBasket.Shared.Dtos;
+using TicketsBasket.Infrastructure.Utilities;
+using System;
 
 namespace TicketsBasket.Models.Mapper
 {
@@ -17,7 +19,7 @@ namespace TicketsBasket.Models.Mapper
         Country = userProfile.Country,
         City = userProfile.City,
         IsOrganizer = userProfile.IsOrganizer,
-        CreatedSince = "1m"
+        CreatedSince = DateTimeUtilities.GetPassedTime(DateTime.UtcNow, userProfile.CreatedOn)
       };
     }
   }

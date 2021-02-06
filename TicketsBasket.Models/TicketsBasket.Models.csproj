@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TicketsBasket.Shared\TicketsBasket.Shared.csproj" />
+    <ProjectReference Include="..\TicketsBasket.Infrastructure\TicketsBasket.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
