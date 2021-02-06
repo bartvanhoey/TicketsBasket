@@ -45,7 +45,7 @@ namespace TicketsBasket.Api.Extensions
       });
     }
 
-    public static void AddSwaggerUi(this IServiceCollection services)
+    public static void AddSwagger(this IServiceCollection services)
     {
       services.AddSwaggerGen(c =>
           {
