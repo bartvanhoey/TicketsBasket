@@ -17,8 +17,10 @@ namespace TicketsBasket.Api.Extensions
   {
     public static void AddB2cAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
-      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-           .AddMicrosoftIdentityWebApi(configuration.GetSection("AzureAdB2C"));
+      // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+      //      .AddMicrosoftIdentityWebApi(configuration.GetSection("AzureAdB2C"));
+
+      services.AddMicrosoftIdentityWebApiAuthentication(configuration, "AzureAdB2C");
     }
 
     public static void AddTicketsBasketDbContext(this IServiceCollection services, IConfiguration configuration)
