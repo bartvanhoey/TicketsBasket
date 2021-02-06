@@ -77,5 +77,10 @@ namespace TicketsBasket.Api.Extensions
       services.AddScoped<IUserProfilesService, UserProfilesService>();
 
     }
+
+    public static void AddAzureStorageAccountOptions(this IServiceCollection services, IConfiguration configuration)
+    {
+      services.AddScoped(sp =>configuration.GetSection("AzureStorageAccountSettings").Get<AzureStorageAccountOptions>());
+    }
   }
 }

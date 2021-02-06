@@ -40,6 +40,7 @@ namespace TicketsBasket.Api
       services.AddHttpContextAccessor();
       services.AddSwagger();
       services.AddIdentityOptions();
+      services.AddAzureStorageAccountOptions(Configuration);
       services.AddBusinessServices();
       services.AddControllers();
 
