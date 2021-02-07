@@ -10,6 +10,7 @@ using TicketsBasket.Infrastructure.Options;
 using TicketsBasket.Models.Data;
 using TicketsBasket.Repositories;
 using TicketsBasket.Services;
+using TicketsBasket.Services.Storage;
 
 namespace TicketsBasket.Api.Extensions
 {
@@ -81,6 +82,11 @@ namespace TicketsBasket.Api.Extensions
     public static void AddAzureStorageAccountOptions(this IServiceCollection services, IConfiguration configuration)
     {
       services.AddScoped(sp =>configuration.GetSection("AzureStorageAccountSettings").Get<AzureStorageAccountOptions>());
+    }
+
+       public static void AddStorageService(this IServiceCollection services)
+    {
+      services.AddScoped<IStorageService, AzureStorageService>();
     }
   }
 }

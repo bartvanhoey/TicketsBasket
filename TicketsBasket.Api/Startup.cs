@@ -41,6 +41,7 @@ namespace TicketsBasket.Api
       services.AddSwagger();
       services.AddIdentityOptions();
       services.AddAzureStorageAccountOptions(Configuration);
+      services.AddStorageService();
       services.AddBusinessServices();
       services.AddControllers();
 

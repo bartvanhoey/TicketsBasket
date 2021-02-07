@@ -2,30 +2,35 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
+using Azure.Storage.Sas;
 using Microsoft.AspNetCore.Http;
 using TicketsBasket.Infrastructure.Options;
 
 namespace TicketsBasket.Services.Storage
 {
-  public class AzureBlobStorageService : IStorageService
+  public class AzureStorageService : IStorageService
   {
     private readonly AzureStorageAccountOptions _storageAccountOptions;
     private readonly BlobServiceClient _blobServiceClient;
 
-    private AzureBlobStorageService(AzureStorageAccountOptions storageAccountOptions)
+    private AzureStorageService(AzureStorageAccountOptions storageAccountOptions)
     {
       _storageAccountOptions = storageAccountOptions;
       _blobServiceClient = new BlobServiceClient(_storageAccountOptions.ConnectionString);
     }
 
-    public string GetProtectedUrl(string container, string blob, DateTime expiryDate)
+    public string GetProtectedUrl(string containerName, string blobName, DateTimeOffset expiryDate)
     {
-      throw new NotImplementedException();
+      var container = _blobServiceClient.GetBlobContainerClient(containerName);
+      var blobClient = container.GetBlobClient(Path.GetFileName(blobName));
+      return blobClient.GenerateSasUri(BlobSasPermissions.Read, expiryDate).AbsoluteUri;
     }
 
-    public Task<string> RemoveBlobAsync(string containerName, string blobName)
+    public async Task DeleteIfExistsAsync(string containerName, string blobName)
     {
-      throw new NotImplementedException();
+      var container = _blobServiceClient.GetBlobContainerClient(containerName);
+      var blobClient = container.GetBlobClient(Path.GetFileName(blobName));
+      await blobClient.DeleteIfExistsAsync();
     }
 
     public async Task<string> SaveBlobAsync(string containerName, IFormFile file)
