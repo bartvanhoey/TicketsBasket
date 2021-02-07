@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Azure.Storage.Sas;
@@ -13,7 +14,7 @@ namespace TicketsBasket.Services.Storage
     private readonly AzureStorageAccountOptions _storageAccountOptions;
     private readonly BlobServiceClient _blobServiceClient;
 
-    private AzureStorageService(AzureStorageAccountOptions storageAccountOptions)
+    public AzureStorageService(AzureStorageAccountOptions storageAccountOptions)
     {
       _storageAccountOptions = storageAccountOptions;
       _blobServiceClient = new BlobServiceClient(_storageAccountOptions.ConnectionString);
@@ -33,10 +34,14 @@ namespace TicketsBasket.Services.Storage
       await blobClient.DeleteIfExistsAsync();
     }
 
-    public async Task<string> SaveBlobAsync(string containerName, IFormFile file)
+    public async Task<string> SaveBlobAsync(string containerName, IFormFile file, BlobType blobType)
     {
+
+      if (file == null) return null;
       var fileName = file.FileName;
       var extension = Path.GetExtension(fileName);
+
+      ValidateExtension(extension, blobType);
 
       var newFileName = $"{Path.GetFileNameWithoutExtension(file.FileName)}_{Guid.NewGuid()}{extension}";
 
@@ -45,12 +50,28 @@ namespace TicketsBasket.Services.Storage
         var container = _blobServiceClient.GetBlobContainerClient(containerName);
         await container.CreateIfNotExistsAsync();
         var blob = container.GetBlobClient(newFileName);
-        await blob.UploadAsync(stream);
-        return $"{_storageAccountOptions.AccountUrl}/{containerName}/{newFileName}";
+        var blobInfo = await blob.UploadAsync(stream);
+        
+        return $"{_storageAccountOptions.AccountUrl}{containerName}/{newFileName}";
       }
+    }
 
+    private void ValidateExtension(string extension, BlobType blobType)
+    {
+      var allowedImageExtensions = new[] { ".jpg", ".png", ".bmp", ".svg" };
+      var allowedDocumentExtensions = new[] { ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".txt" };
 
-
+      switch (blobType)
+      {
+        case BlobType.Image:
+          if (!allowedImageExtensions.Contains(extension)) throw new BadImageFormatException();
+          break;
+        case BlobType.Document:
+          if (!allowedDocumentExtensions.Contains(extension)) throw new NotSupportedException($"Document file is not supported {extension}");
+          break;
+        default:
+          break;
+      }
     }
   }
 }

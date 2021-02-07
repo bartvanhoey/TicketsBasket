@@ -14,7 +14,7 @@ namespace TicketsBasket.Models.Mapper
         UserId = userProfile.UserId,
         FirstName = userProfile.FirstName,
         LastName = userProfile.LastName,
-        ProfilePicture = userProfile.ProfilePicture,
+        ProfilePictureUrl = userProfile.ProfilePictureUrl,
         Email = userProfile.Email,
         Country = userProfile.Country,
         City = userProfile.City,

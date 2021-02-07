@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TicketsBasket.Services;
 using TicketsBasket.Shared.Dtos;
@@ -26,7 +27,7 @@ namespace TicketsBasket.Api.Controllers
     [ProducesResponseType(400, Type = typeof(OperationResponse<UserProfileDto>))]
     public async Task<IActionResult> Get()
     {
-      var operationResponse = await _userProfilesService.GetUserProfileByUserIdAsync();
+      var operationResponse = await _userProfilesService.GetByUserIdAsync();
       if (operationResponse.IsSuccess) return Ok(operationResponse);
       return NotFound();
     }
@@ -36,7 +37,17 @@ namespace TicketsBasket.Api.Controllers
     [ProducesResponseType(400, Type = typeof(OperationResponse<UserProfileDto>))]
     public async Task<IActionResult> Post([FromForm] CreateUserProfileRequest model)
     {
-      var operationResponse = await _userProfilesService.CreateUserProfileAsync(model);
+      var operationResponse = await _userProfilesService.CreateAsync(model);
+      if (operationResponse.IsSuccess) return Ok(operationResponse);
+      return BadRequest(operationResponse);
+    }
+
+    [HttpPut]
+    [ProducesResponseType(200, Type = typeof(OperationResponse<UserProfileDto>))]
+    [ProducesResponseType(400, Type = typeof(OperationResponse<UserProfileDto>))]
+    public async Task<IActionResult> Put([FromForm] IFormFile file)
+    {
+      var operationResponse = await _userProfilesService.UpdateProfilePictureAsync(file);
       if (operationResponse.IsSuccess) return Ok(operationResponse);
       return BadRequest(operationResponse);
     }

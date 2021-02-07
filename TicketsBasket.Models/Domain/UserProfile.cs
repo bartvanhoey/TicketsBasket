@@ -23,7 +23,7 @@ namespace TicketsBasket.Models.Domain
     public string LastName { get; set; }
 
     [StringLength(256)]
-    public string ProfilePicture { get; set; }
+    public string ProfilePictureUrl { get; set; }
 
     [Required]
     [StringLength(25)]
