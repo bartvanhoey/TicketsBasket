@@ -11,7 +11,7 @@ using TicketsBasket.Infrastructure.Options;
 
 namespace TicketsBasket.Api.Controllers
 {
-  [Authorize]
+  [Authorize(Roles = "organizer")]
   [ApiController]
   [Route("[controller]")]
   public class WeatherForecastController : ControllerBase
